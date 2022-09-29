@@ -24,12 +24,14 @@ const Staffs = ({ match }) => {
   let history = useHistory();
   const [keywordSearch, setKeyword] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const { error, staffs, productsCount, resultPerPage, filteredProductsCount } =
-    useSelector((state) => state.staffs);
+  const { error, staffs, filteredProductsCount } = useSelector(
+    (state) => state.staffs
+  );
   const { error: deleteError, isDeleted } = useSelector((state) => state.staff);
 
   //   const [id, setId] = useState();
   const keyword = match.params.keyword;
+
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
@@ -41,11 +43,12 @@ const Staffs = ({ match }) => {
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keywordSearch.trim()) {
-      history.push(`/admin/searchStaff/${keywordSearch}`);
+      history.push(`/admin/staffs/${keywordSearch}`);
     } else {
-      history.push("/admin/searchStaff");
+      history.push("/admin/staffs");
     }
   };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -193,7 +196,7 @@ const Staffs = ({ match }) => {
       <InputGroup className="mb-3">
         <Form onSubmit={searchSubmitHandler}>
           <Form.Control
-            placeholder="Nhập tên, căn cước công dân hoặc mã nhân viên"
+            placeholder="Nhập tên"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
             onChange={(e) => setKeyword(e.target.value)}
@@ -211,14 +214,6 @@ const Staffs = ({ match }) => {
         className="productList"
         autoHeight
       />
-      <div className="row">
-        {staffs &&
-          staffs.map((staff) => (
-            <div key={staff.id}>
-              <h5>{staff.name}</h5>
-            </div>
-          ))}
-      </div>
     </>
   );
 };

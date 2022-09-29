@@ -29,11 +29,11 @@ export const getStaff =
     try {
       dispatch({ type: ALL_STAFF_REQUEST });
 
-      let link = `/api/v1/staffs?keyword=${keyword}&page=${currentPage}$staffCode=${staffCode}`;
+      let link = `/api/v1/staffs?keyword=${keyword}&page=${currentPage}&staffCode=${staffCode}`;
 
-      if (staffCode) {
-        link = `/api/v1/staffs?keyword=${keyword}&page=${currentPage}&staffCode=${staffCode}`;
-      }
+      // if (staffCode) {
+      //   link = `/api/v1/staffs?&staffCode=${staffCode}&page=${currentPage}`;
+      // }
 
       const { data } = await axios.get(link);
 
@@ -51,16 +51,14 @@ export const getStaff =
 
 // Get All Staffs For Admin
 export const getAdminStaff =
-  (keyword = "", currentPage = 1, code = "", staffId = "") =>
+  (keyword = "", currentPage = 1, staffCode = "") =>
   async (dispatch) => {
     try {
       dispatch({ type: ADMIN_STAFF_REQUEST });
       let link = `/api/v1/admin/staffs?keyword=${keyword}&page=${currentPage}`;
 
-      if (code) {
-        link = `/api/v1/admin/staffs?page=${currentPage}&code=${code}`;
-      } else if (staffId) {
-        link = `/api/v1/admin/staffs?page=${currentPage}&staffId=${staffId}`;
+      if (staffCode) {
+        link = `/api/v1/admin/staffs?keyword=${keyword}&staffCode=${staffCode}`;
       }
       const { data } = await axios.get(link);
 

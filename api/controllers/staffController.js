@@ -69,7 +69,6 @@ exports.getAdminStaffs = catchAsyncErrors(async (req, res, next) => {
 
   const apiFeature = new ApiFeatures(Staff.find(), req.query)
     .search()
-    .searchId()
     .searchCode()
     .filter();
 

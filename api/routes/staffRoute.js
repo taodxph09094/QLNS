@@ -11,8 +11,6 @@ const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 const router = express.Router();
 
-// router.route("/staffs").get(getAllProducts);
-
 router
   .route("/admin/staffs")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminStaffs);
