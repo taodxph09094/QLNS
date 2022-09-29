@@ -74,19 +74,19 @@ const UserList = ({ history }) => {
       flex: 0.5,
       align: "center",
     },
-    {
-      field: "role",
-      headerName: "Quyền",
-      type: "number",
-      headerAlign: "center",
-      flex: 0.5,
-      align: "center",
-      cellClassName: (params) => {
-        return params.getValue(params.id, "role") === "admin"
-          ? "greenColor"
-          : "redColor";
-      },
-    },
+    // {
+    //   field: "role",
+    //   headerName: "Quyền",
+    //   type: "number",
+    //   headerAlign: "center",
+    //   flex: 0.5,
+    //   align: "center",
+    //   cellClassName: (params) => {
+    //     return params.getValue(params.id, "role") === "admin"
+    //       ? "greenColor"
+    //       : "redColor";
+    //   },
+    // },
 
     {
       field: "actions",
@@ -127,7 +127,7 @@ const UserList = ({ history }) => {
     users.forEach((item) => {
       rows.push({
         id: item._id,
-        role: item.role,
+        // role: item.role,
         email: item.email,
         name: item.name,
         phone: item.phone,

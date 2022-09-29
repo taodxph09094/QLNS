@@ -130,8 +130,8 @@ const Staffs = ({ match }) => {
       align: "center",
     },
     {
-      field: "rank",
-      headerName: "Rank",
+      field: "wage",
+      headerName: "Lương",
       flex: 0.25,
       headerAlign: "center",
       align: "center",
@@ -178,7 +178,7 @@ const Staffs = ({ match }) => {
         addressEmail: item.addressEmail,
         gender: item.gender,
         position: item.position,
-        rank: item.rank,
+        wage: item.wage,
         idDb: item.staffCode,
       });
     });

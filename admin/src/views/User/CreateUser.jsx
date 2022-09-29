@@ -29,7 +29,7 @@ const CreateUser = ({ history }) => {
   const [role, setRole] = useState("");
   const [avatar, setAvatar] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
-  const permission = ["Admin", "Manager", "User"];
+  const permission = ["Admin", "Manager"];
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -161,24 +161,6 @@ const CreateUser = ({ history }) => {
                           type="number"
                           onChange={(e) => setPhone(e.target.value)}
                         ></Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col className="px-1" md="4">
-                      <Form.Group>
-                        <label>Quyền người dùng</label>
-                        <Form.Select
-                          className="select-category"
-                          aria-label="Default select example"
-                          defaultValue={role}
-                          onChange={(e) => setRole(e.target.value)}
-                        >
-                          <option value="">Chọn quyền</option>
-                          {permission.map((cate) => (
-                            <option key={cate} value={cate}>
-                              {cate}
-                            </option>
-                          ))}
-                        </Form.Select>
                       </Form.Group>
                     </Col>
                   </Row>

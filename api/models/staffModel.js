@@ -63,10 +63,6 @@ const staffSchema = new mongoose.Schema({
     type: String,
     required: [true, "Nhập chức vụ"],
   },
-  rank: {
-    type: String,
-    required: [true, "Nhập chọn rank"],
-  },
   dateSign: {
     type: String,
     required: [true, "Nhập ngày ký hợp đồng"],
@@ -75,7 +71,7 @@ const staffSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Nhập lương"],
   },
-  room: {
+  department: {
     type: String,
     required: [true, "Nhập phòng ban làm việc"],
   },

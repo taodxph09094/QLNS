@@ -38,7 +38,8 @@ const CreateStaff = ({ history }) => {
   const [addressEmail, setAddressEmail] = useState("");
   const [gender, setGender] = useState("");
   const [position, setPosition] = useState("");
-  const [rank, setRank] = useState("");
+  const [wage, setWage] = useState("");
+  const [department, setDepartment] = useState("");
   const [dateSign, setSign] = useState("");
   const [expired, setExpired] = useState("");
   const [images, setImages] = useState([]);
@@ -80,7 +81,8 @@ const CreateStaff = ({ history }) => {
     myForm.set("addressEmail", addressEmail);
     myForm.set("gender", gender);
     myForm.set("position", position);
-    myForm.set("rank", rank);
+    myForm.set("wage", wage);
+    myForm.set("department", department);
     myForm.set("dateSign", dateSign);
     myForm.set("expired", expired);
     images.forEach((image) => {
@@ -215,7 +217,7 @@ const CreateStaff = ({ history }) => {
                       </Form.Group>
                     </Col>
 
-                    <Col className="pl-1" md="4">
+                    <Col className="pl-1" md="2">
                       <Form.Group>
                         <label>Dân tộc</label>
                         <Form.Control
@@ -223,6 +225,17 @@ const CreateStaff = ({ history }) => {
                           placeholder="Nhập dân tộc"
                           type="text"
                           onChange={(e) => setEthnic(e.target.value)}
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="pl-1" md="2">
+                      <Form.Group>
+                        <label>Phòng ban</label>
+                        <Form.Control
+                          value={department}
+                          placeholder="Nhập phòng ban"
+                          type="text"
+                          onChange={(e) => setDepartment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -239,12 +252,12 @@ const CreateStaff = ({ history }) => {
                     </Col>
                     <Col className="pl-1" md="2">
                       <Form.Group>
-                        <label>Rank chức vụ</label>
+                        <label>Lương</label>
                         <Form.Control
-                          value={rank}
-                          placeholder="Nhập rank"
+                          value={wage}
+                          placeholder="Nhập lương"
                           type="text"
-                          onChange={(e) => setRank(e.target.value)}
+                          onChange={(e) => setWage(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
                     </Col>
